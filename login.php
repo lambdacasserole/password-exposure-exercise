@@ -1,6 +1,6 @@
 <?php
 
-require_once "shared.php";
+require_once "accounts.php";
 
 // If this page was posted to.
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
@@ -13,12 +13,18 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   $user = getUserByUsername($_POST['username']);
 
   // Check that user exists and password matches.
-  if ($user === null || !password_verify($password, $user['password'])) {
+  if ($user === null || $password !== $user['password']) {
     header("Location: /?action=elogin");
     die();
   }
 
-  // Add user to database.
+  // TODO: Check password hash instead of password.
+  // if ($user === null || !password_verify($password, $user['password'])) {
+  //   header("Location: /?action=elogin");
+  //   die();
+  // }
+
+  // Place user in session.
   session_start();
   $_SESSION['loggedinuser'] = $user['username'];
   header("Location: /?action=loggedin");

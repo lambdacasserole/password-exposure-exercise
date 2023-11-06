@@ -2,6 +2,7 @@
 
 require_once "accounts.php";
 
+// Get logged in user if there is one.
 session_start();
 if (isset($_SESSION['loggedinuser'])) {
   $loggedInUser = getUserByUsername($_SESSION['loggedinuser']);
@@ -42,20 +43,22 @@ if (isset($_SESSION['loggedinuser'])) {
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="/">Home
+          <li class="nav-item">
+            <a class="nav-link active" href="/">Home
               <span class="sr-only">(current)</span>
             </a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="#">About</a>
           </li>
+          <li class="nav-item nav-divider">|</li>
           <?php
             if ($loggedInUser !== null) {
-              echo '<li class="nav-item"><a class="nav-link" href="editprofile.php?user=' . $loggedInUser["username"] . '">|&nbsp;&nbsp;&nbsp;Welcome ' . $loggedInUser["name"] . '</a></li>';
-              echo '<a class="nav-link" href="logout.php">Logout</a>';
+              echo '<li class="nav-item"><a class="nav-link" href="editprofile.php?user=' . $loggedInUser["username"] . '">Welcome ' . $loggedInUser["username"] . '</a></li>';
+              echo '<li class="nav-item nav-divider">|</li>';
+              echo '<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>';
             } else {
-              echo '<a class="nav-link" href="#">Login</a>';
+              echo '<li class="nav-item"><a class="nav-link" href="/">Login</a></li>';
             }
           ?>
         </ul>
@@ -180,9 +183,13 @@ if (isset($_SESSION['loggedinuser'])) {
             <p>
               Members log in below to post and comment!
             </p>
-            <?php if ($_GET['action'] === 'loggedout') { ?>
+            <?php if (isset($_GET['action']) && $_GET['action'] === 'loggedout') { ?>
             <p class="alert alert-warning">
               You have logged out.
+            </p>
+            <?php } else if (isset($_GET['action']) && $_GET['action'] === 'elogin') { ?>
+            <p class="alert alert-danger">
+              Incorrect username or password.
             </p>
             <?php } ?>
             <form action="login.php" method="post">
@@ -206,11 +213,11 @@ if (isset($_SESSION['loggedinuser'])) {
             <p>
               New members can sign up below for an account!
             </p>
-            <?php if ($_GET['action'] === 'thanksignup') { ?>
+            <?php if (isset($_GET['action']) && $_GET['action'] === 'thanksignup') { ?>
             <p class="alert alert-success">
               Thank you for signing up! You can now log in above.
             </p>
-            <?php } else if ($_GET['action'] === 'epassconf') { ?>
+            <?php } else if (isset($_GET['action']) && $_GET['action'] === 'epassconf') { ?>
             <p class="alert alert-danger">
               Your password did not match the confirmation.
             </p>

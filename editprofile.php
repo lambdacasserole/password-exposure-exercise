@@ -20,11 +20,11 @@ if ($loggedInUser === null) {
 	die();
 }
 
-// Cannot be logged in as a different user.
-if ($user["username"] !== $loggedInUser["username"]) {
-	header("Location: editprofile.php?user=" . $loggedInUser["username"]);
-	die();
-}
+// TODO: Patch here to disalllow editing of other user's profiles.
+// if ($user["username"] !== $loggedInUser["username"]) {
+// 	header("Location: editprofile.php?user=" . $loggedInUser["username"]);
+// 	die();
+// }
 
 ?>
 
@@ -61,7 +61,7 @@ if ($user["username"] !== $loggedInUser["username"]) {
       </button>
       <div class="collapse navbar-collapse" id="navbarResponsive">
         <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
+          <li class="nav-item">
             <a class="nav-link" href="/">Home
               <span class="sr-only">(current)</span>
             </a>
@@ -69,12 +69,14 @@ if ($user["username"] !== $loggedInUser["username"]) {
           <li class="nav-item">
             <a class="nav-link" href="#">About</a>
           </li>
+          <li class="nav-item nav-divider">|</li>
           <?php
             if ($loggedInUser !== null) {
-              echo '<li class="nav-item"><a class="nav-link" href="editprofile.php?user=' . $loggedInUser["username"] . '">|&nbsp;&nbsp;&nbsp;Welcome ' . $loggedInUser["name"] . '</a></li>';
-              echo '<a class="nav-link" href="logout.php">Logout</a>';
+              echo '<li class="nav-item"><a class="nav-link active" href="editprofile.php?user=' . $loggedInUser["username"] . '">Welcome ' . $loggedInUser["username"] . '</a></li>';
+              echo '<li class="nav-item nav-divider">|</li>';
+              echo '<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>';
             } else {
-              echo '<a class="nav-link" href="#">Login</a>';
+              echo '<li class="nav-item"><a class="nav-link" href="/">Login</a></li>';
             }
           ?>
         </ul>
@@ -118,6 +120,11 @@ if ($user["username"] !== $loggedInUser["username"]) {
             <label for="username">Username:</label>
             <input class="form-control" type="text" value="<?php echo $user['username']; ?>" id="username" disabled>
           </div>
+          <!-- TODO: Remove the below to prevent writing password/password hash to response. -->
+          <div class="form-group">
+            <label for="password">Password:</label>
+            <input class="form-control" type="password" value="<?php echo $user['password']; ?>" id="password" disabled>
+          </div>
           <div class="form-group">
             <label for="username">Bio:</label>
             <textarea class="form-control"><?php echo $user['bio'] ?></textarea>
@@ -134,7 +141,6 @@ if ($user["username"] !== $loggedInUser["username"]) {
             <input type="submit" class="btn btn-success" value="Save changes">
           </p>
         </form>
-
 
         <hr>
 

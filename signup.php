@@ -1,6 +1,6 @@
 <?php
 
-require_once "shared.php";
+require_once "accounts.php";
 
 // If this page was posted to.
 if ($_SERVER["REQUEST_METHOD"] === "POST") {

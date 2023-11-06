@@ -1,6 +1,10 @@
 <?php
 
+/**
+ * The path of the user credential database on-disk.
+ */
 $USER_DB = "users.csv";
+
 
 /**
  * Adds a user to the database.
@@ -15,8 +19,12 @@ function addUser($username, $password, $picture, $name, $bio) {
   global $USER_DB; // Import constant.
 
   // Add user to database.
-  file_put_contents($USER_DB, "$username, ". password_hash("$password", PASSWORD_DEFAULT) . ", $picture, $name, $bio\n", FILE_APPEND);
+  file_put_contents($USER_DB, "$username, " . "$password" . ", $picture, $name, $bio\n", FILE_APPEND); 
+  
+  // TODO: Hash password on way into database.
+  // file_put_contents($USER_DB, "$username, " . password_hash($password, PASSWORD_DEFAULT) . ", $picture, $name, $bio\n", FILE_APPEND); 
 }
+
 
 /**
  * Gets all users from the site user database.
@@ -32,6 +40,9 @@ function getUsers() {
   $users = [];
   foreach (explode("\n", $txt) as $row) {
     $cols = explode(",", $row);
+    if (sizeof($cols) !== 5) {
+      continue;
+    }
     $users[] = [
       "username" => trim($cols[0]),
       "password" => trim($cols[1]),
@@ -42,6 +53,7 @@ function getUsers() {
   }
   return $users;
 }
+
 
 /**
  * Gets the user with the specified username.

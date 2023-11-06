@@ -1,8 +1,11 @@
 <?php
 
 require_once "accounts.php";
+
+// Load user.
 $user = getUserByUsername($_GET['user']);
 
+// Get logged in user if there is one.
 session_start();
 if (isset($_SESSION['loggedinuser'])) {
   $loggedInUser = getUserByUsername($_SESSION['loggedinuser']);
@@ -53,11 +56,14 @@ if (isset($_SESSION['loggedinuser'])) {
           <li class="nav-item">
             <a class="nav-link" href="#">About</a>
           </li>
+          <li class="nav-item nav-divider">|</li>
           <?php
             if ($loggedInUser !== null) {
-              echo '<li class="nav-item"><a class="nav-link" href="editprofile.php?user=' . $loggedInUser["username"] . '">|&nbsp;&nbsp;&nbsp;Welcome ' . $loggedInUser["name"] . '</a></li>';
+              echo '<li class="nav-item"><a class="nav-link" href="editprofile.php?user=' . $loggedInUser["username"] . '">Welcome ' . $loggedInUser["username"] . '</a></li>';
+              echo '<li class="nav-item nav-divider">|</li>';
+              echo '<li class="nav-item"><a class="nav-link" href="logout.php">Logout</a></li>';
             } else {
-              echo '<a class="nav-link" href="#">Login</a>';
+              echo '<li class="nav-item"><a class="nav-link" href="/">Login</a></li>';
             }
           ?>
         </ul>

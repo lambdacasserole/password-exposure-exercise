@@ -6,3 +6,14 @@
 body {
   padding-top: 56px;
 }
+
+.nav-divider {
+  margin-left: 8px;
+  margin-right: 8px;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  line-height: 1.5;
+  color: white;
+  opacity: 0.5;
+  cursor: default;
+}
