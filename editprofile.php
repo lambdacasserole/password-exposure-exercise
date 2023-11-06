@@ -103,7 +103,7 @@ if ($loggedInUser === null) {
         <hr>
 
         <!-- Date/Time -->
-        <p>Last updated in August 2020</p>
+        <p>Last updated in August 2023</p>
 
         <hr>
 
@@ -176,7 +176,7 @@ if ($loggedInUser === null) {
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Expresso Blogs 2020</p>
+      <p class="m-0 text-center text-white">Copyright &copy; Expresso Blogs 2023</p>
     </div>
     <!-- /.container -->
   </footer>

@@ -86,7 +86,7 @@ if (isset($_SESSION['loggedinuser'])) {
         <hr>
 
         <!-- Date/Time -->
-        <p>Posted on August 24<sup>th</sup> 2020 at 12:14pm</p>
+        <p>Posted on August 24<sup>th</sup> 2023 at 12:14pm</p>
 
         <hr>
 
@@ -286,7 +286,7 @@ if (isset($_SESSION['loggedinuser'])) {
   <!-- Footer -->
   <footer class="py-5 bg-dark">
     <div class="container">
-      <p class="m-0 text-center text-white">Copyright &copy; Expresso Blogs 2020</p>
+      <p class="m-0 text-center text-white">Copyright &copy; Expresso Blogs 2023</p>
     </div>
     <!-- /.container -->
   </footer>
