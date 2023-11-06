@@ -4,7 +4,7 @@ This repository contains a deliberately vulnerable web application exhibiting a 
 
 ## Purpose
 
-[Screenshot](screenshot.png)
+![Screenshot](screenshot.png)
 
 ## Setup
 
