@@ -24,6 +24,12 @@ You'll then be able to access the vulnerable web application at:
 http://localhost:8080
 ```
 
+### Deployment
+
+If you want to add this application to your vhosts, a config file is included in the root of this project to get you started. 
+
+Rename this, update it with your server name/document root and copy it to `/etc/apache2/sites-available`. Activate it with `a2ensite` and run `letsencrypt` or similar to configure HTTPS automatically.
+
 ## Usage
 
 Follow this workflow to conduct the cyberattack on the web application:
