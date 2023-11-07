@@ -12,7 +12,7 @@ I use this as part of a practical activity in my seminars on cybersecurity for b
 
 **Do not deploy this intentionally vulnerable web application on any webserver you don't mind destroying.**
 
-This project is designed to run on a LAMP stack. Simply configure Apache to serve the root of this project. Alternatively, to run the project on local ensure that PHP 7.0+ is installed and run the following from the project root:
+This project is designed to run on a LAMP stack. Simply configure Apache to serve the root of this project. Alternatively, to run the project locally, ensure that PHP 7.0+ is installed and run the following from the project root:
 
 ```bash
 php -S localhost:8080
@@ -51,8 +51,8 @@ Apache will need to be reconfigured to disallow the download of the `/users.csv`
 
 The following libraries are used by the project frontend, but are committed to the repository (i.e. not dependency-managed) for ease of deploying the project and resetting it for the next group of students:
 
-* jQuery v3.5.1
-* Bootstrap v4.5.0
+* [jQuery v3.5.1](https://jquery.com)
+* [Bootstrap v4.5.0](https://getbootstrap.com/docs/4.0/getting-started/introduction/)
 
 The frontend for this project is based on the [StartBootstrap Blog Post Template](https://startbootstrap.com/template/blog-post).
 
