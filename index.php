@@ -240,6 +240,7 @@ if (isset($_SESSION['loggedinuser'])) {
           </div>
         </div>
 <?php } ?>
+
         <!-- Categories Widget -->
         <div class="card my-4">
           <h5 class="card-header">Categories</h5>
@@ -274,6 +275,20 @@ if (isset($_SESSION['loggedinuser'])) {
             </div>
           </div>
         </div>
+
+<?php if ($loggedInUser !== null && $loggedInUser['username'] === 'admin') { ?>
+        <!-- Maintenance Widget -->
+        <div class="card my-4">
+          <h5 class="card-header">Admin tasks</h5>
+          <div class="card-body">
+            <div class="row">
+              <div class="col-lg-12">
+                Remember to regularly back up the user database at: <code>/users.csv</code>
+              </div>
+            </div>
+          </div>
+        </div>
+<?php } ?>
 
       </div>
 
