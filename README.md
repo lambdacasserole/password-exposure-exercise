@@ -6,7 +6,7 @@ This repository contains a deliberately vulnerable web application exhibiting a 
 
 ![Screenshot](screenshot.png)
 
-I use this as part of a practical activity in my seminars on cybersecurity for business students. It allows students to get hands-on in conducting a cyberattack without leaving the browser.
+I use this as part of a practical activity in my seminars on cybersecurity for business students. It allows students to get hands-on in conducting a cyberattack aimed at compromising a web application by gaining admin access without leaving the browser.
 
 ## Setup
 
