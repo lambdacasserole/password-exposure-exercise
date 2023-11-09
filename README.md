@@ -1,12 +1,12 @@
 # Password Exposure Exercise
 
-This repository contains a deliberately vulnerable web application exhibiting a simple password exposure vulnerabilty.
+This repository contains a deliberately vulnerable web application exhibiting a simple password exposure vulnerability.
 
 ## Purpose
 
 ![Screenshot](screenshot.png)
 
-I use this as part of a practical activity in my seminars on cybersecurity for business students. It allows the student to get hands-on in conducting a cyberattack without leaving the browser.
+I use this as part of a practical activity in my seminars on cybersecurity for business students. It allows students to get hands-on in conducting a cyberattack without leaving the browser.
 
 ## Setup
 
